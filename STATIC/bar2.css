@@ -1,0 +1,118 @@
+.second-bar{
+    display:block;
+    width:100%;
+    height: 40px;
+    display:grid;
+    align-items: center;
+    grid-template-columns: 510px 1fr 180px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #232f3e ;
+}
+.part1-secondary{
+    display:flex;
+    align-items: center;
+    height: 100%;
+}
+
+.All,.sell,.Today-Deals,.Customer-Service,.Register,.Gift-Cards{
+    padding: 10px 11px 10px 11px;
+    height: 100%;
+}
+.All:hover,.sell:hover,.Today-Deals:hover,.Customer-Service:hover,.Register:hover,.Gift-Cards:hover{
+    border: 1px solid white;
+    padding: 9px 11px 9px 11px;
+}
+.All:hover{
+    padding: 9px 11px 9px 11px;
+}
+.All{
+    font-weight: 600;
+    font-size: 16px;
+    padding: 9px 11px 9px 11px;
+}
+.part2{
+    background-color: #232f3e;
+}
+.part3{
+    background-color: #232f3e;
+    font-weight: 700;
+    font-size: 15px;
+    
+}
+.shop{
+    padding: 9px 13px 9px 13px;
+}
+.shop:hover{
+    border: 1px solid white;
+
+}
+.imgz{
+    width: 100%;
+    height: 100%;
+}
+.op{
+    position: relative;
+    
+    
+}
+.box-button{
+    position:absolute;
+    top: 80%;
+    z-index: 100;
+    left: 35%;
+    right: 35%;
+    padding: 5px ;
+    border: none;
+    background-color:rgba(255, 255, 255, 0.8);
+}
+.box-button:hover{
+    color:rgb(66, 66, 66);
+}
+.box-button2:hover{
+    color:rgb(66, 66, 66);
+}
+.box-button2{
+    padding: 5px ;
+    position:absolute;
+    top: 80%;
+    z-index: 100;
+    left: 30%;
+    right: 30%;
+    border:none;
+}
+
+.last-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 10px;
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 6px;
+}
+.laste-container button{
+    font-size: 16px;
+}
+@media (max-width:750px) {
+    .last-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        column-gap: 20px;
+        row-gap: 10px;
+        background-color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 6px;
+    }
+    .shop{
+        display: none;
+    }
+    .Today-Deals{
+        display: none;
+    }
+    .sell{
+        display: none;
+    }
+}

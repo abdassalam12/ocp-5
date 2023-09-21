@@ -1,0 +1,218 @@
+body{
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+}
+.card-container{
+    width: 100%;
+}
+.card{
+    width: 100%;
+}
+.front{
+    width: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    font-family: Roboto ;
+    font-size: 20px;
+    font-weight: 10px;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: 10;
+    padding-bottom: 200px;
+   
+    
+}
+.back{
+    width: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    font-family: Roboto ;
+    font-size: 20px;
+    font-weight: 10px;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    backface-visibility: hidden;
+     transform: rotateY(180deg);
+    z-index: 10;
+    
+    padding-bottom: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+.card-container{
+    position:relative;
+    perspective: 1000px;
+}
+.card{
+    transform-style: preserve-3d;
+    position:absolute;
+    transition: all 0.5s ease;
+}
+
+
+.img{
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+}
+@media(max-width:1050px){
+    .front{
+        padding-bottom: 800px;
+        font-size: 13px;
+    }
+    .back{
+        padding-bottom: 800px;
+        font-size: 13px;
+    }
+    .undo-bar{
+        display: grid;
+        grid-template-columns: 10px 1px 1fr;
+    }
+.logo{
+    z-index: 10;
+    width:100px;
+    padding-left: 0;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.heart{
+    padding-left: 40px;
+    z-index: 10;
+}  
+    
+}
+.first-container{
+    display: grid;
+
+}
+.undo-bar{
+    display: grid;
+    grid-template-columns: 30px 1fr 60%;
+    
+
+}
+.logo{
+    height: 120px;
+    z-index: 10;
+    margin-left: 20px;
+}
+img{
+    object-fit: cover;
+    height: 100%;
+}
+.bar{
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(188, 185, 185, 0.8);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    color: black;
+    align-items: center;
+    z-index: 10;
+}
+.bare{
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(188, 185, 185, 0.8);
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    text-align: center;
+    color: black;
+    align-items: center;
+    z-index: 10;
+}
+p{
+    margin: 0 0 0 0;
+    padding:15px 0 15px 0;
+
+}
+.parts{
+   border-radius: 10px;
+}
+.bar{
+    padding-left: 5px;
+    padding-right: 5px;
+    z-index: 10;
+}
+.parts:hover{
+    background-color: rgb(153, 77, 6);
+    color:white;
+    transition: background-color 1s;
+    transition: color 0.5s;
+}
+.heart{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:500px ;
+    font-size: 30px;
+    background-color: rgba(188, 185, 185, 0.4);
+    color: rgb(87, 58, 58);
+    position: relative;
+}
+.button{
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+.button{
+    width:100px;
+}
+.imgs{
+    width: 100%;
+}
+.undo-heart{
+    text-align: center;
+}
+.inputs{
+    text-align: center;
+    border:solid;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgba(188, 185, 185, 0.8);
+    font-size: 20px;
+}
+input{
+    padding-left: 10px;
+    border-radius: 20px;
+    border-style: none;
+    outline: none;
+    height: 30px;
+    font-size: 20px;
+}
+.submit{
+    margin-top: 50px;
+    padding: 10px 20px 10px 20px;
+    border:solid;
+    font-weight: bold;
+    color:rgb(87, 58, 58); 
+    border-color: rgb(87, 58, 58);
+    border-radius: 20px;
+}
+.submit:hover{
+    color:white;
+    border-color: white;
+    border:solid;
+    background-color:rgb(87, 58, 58);
+    cursor: pointer;
+}
+.parts:hover{
+    cursor: pointer;
+}
