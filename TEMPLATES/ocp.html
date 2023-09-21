@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'ocp.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="front" style="background-image: url('{% static 'images/hello.jpg' %}')">
+                <div class="first-container">
+                    <div class="undo-bar">
+                        <div id="logo" class="logo">
+                            <img src="{% static 'images/R.png' %}" alt="" />
+                        </div>
+
+                        <div>
+                        </div>
+                        <div id="bar" class="bar">
+                            <div class="parts" id="aceuil0">
+                                <p>Aceuil</p>
+                            </div>
+                            <div class="parts">
+                                <p>Recrutement</p>
+                            </div>
+                            <div id="identifié" class="parts">
+                                <p>S'identifié</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="heart">
+                    <div class="undo-heart">
+                        <h1>Votre confort est notre priorité absolue</h1>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="back" style="background-image: url('{% static 'images/workers3.jpeg' %}')">
+                <div class="first-container">
+                    <div class="undo-bar">
+                        <div id="logo" class="logo">
+                            <img src="{% static 'images/R.png' %}" alt="" />
+                        </div>
+
+                        <div>
+                        </div>
+                        <div id="bar" class="bare">
+                            <div class="parts" id="aceuil">
+                                <p>Aceuil</p>
+                            </div>
+                            <div class="parts">
+                                <p>Recrutement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="heart">
+                    <div class="undo-heart">
+                        <h1>Login</h1>
+                        <div class="inputs">
+                            <form method="post" action="{% url 'home' %}">
+                                {% csrf_token %}
+                                <p>id</p>
+                                <input type="text" name="id">
+                                <p>password</p>
+                                <input type="password" name="password"><br>
+                                <button class="submit" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<script>
+    var logo = document.getElementById('logo');
+    var bar = document.getElementById('bar');
+    var card = document.getElementById('card');
+
+    var x = -120;
+    var s = 0;
+    window.addEventListener('load', function () {
+        function loopx() {
+            x++;
+            logo.style.marginLeft = x + "px";
+            if (x < 20) {
+                setTimeout(loopx, 5);
+            }
+        }
+        loopx();
+    });
+
+    function arabast() {
+        card.style.transform = 'rotateY(360deg)';
+    }
+    function arabasta() {
+        card.style.transform = 'rotateY(180deg)';
+    }
+
+
+    var identifié = document.getElementById('identifié');
+    var aceuil = document.getElementById('aceuil');
+    var aceuil0 = document.getElementById('aceuil0');
+    identifié.addEventListener("click", arabasta);
+    aceuil.addEventListener("click", arabast);
+    aceuil0.addEventListener("click", arabasta);
+</script>
+
+</html>

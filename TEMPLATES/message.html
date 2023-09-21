@@ -1,0 +1,335 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'messege.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="head">
+        <div id="logo" class="logo">
+            <img class="R" src="{% static 'images/R.png' %}" alt="" />
+        </div>
+        <div class="main_container3">
+            <div class="container3">
+                <img class="OIP" src="{{chosen.Image.url}}" alt="">
+            </div>
+            <div class="container4">
+                {{ chosen_user }}
+            </div>
+        </div>
+    </div>
+    <div class="main_container">
+        <div class="container1">
+            <h1 style="text-align: center; display:block;">Cantacts</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="all">
+                    <div class="camo"></div>
+                    <div class="form_container">
+                        {% for user in User %}
+                        <button style="width :100%; " class="button" type="submit" name="{{ user.username  }}">
+                            <div class="main_container20">
+                                <div class="container20"><img class="OIP1" src="{{ user.image_set.first.Image.url }}"
+                                        alt=""></div>
+                                <div class="container21">
+                                    <p>{{ user.username }}</p>
+                                </div>
+                            </div>
+
+
+                        </button>
+                        {% endfor %}
+                    </div>
+                    <div class="camo0"></div>
+                </div>
+
+            </form>
+        </div>
+        <div class="container2" id="container2">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="chose">
+                    
+                    {% if chosen_user is not None %}
+                    {% for disc in discution %}
+                    <div class="ljame3">
+                        <div class="lmoursil">
+                            {% if disc.lmoursil == user_name %}
+                            <div class="messages" style="background-color: black; color:white">
+                                <div>{{disc.Message}}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="lwast"></div>
+                        <div class="lmousta9bil">
+                            {% if disc.lmoursil == user_other %}
+                            <div class="messages" style="background-color:rgb(242, 236, 41);">
+                                <div>{{disc.Message}}</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <input type="text" name="messages" id="input">
+                    <button type="submit" id="envoyer">Envoyer</button>
+                    {% endif %}
+                </div>
+            </form>
+            
+        </div>
+       
+    </div>
+
+    </div>
+    <script>
+        addEventListener('load',function(){
+            var scrollableDiv = document.getElementById('container2');
+            var lastChild = scrollableDiv.lastElementChild;
+          
+            if (lastChild) {
+              lastChild.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+          })
+        
+          
+          
+        document.addEventListener("DOMContentLoaded", function () {
+            var button = document.getElementById("button");
+            var divImgs = document.getElementById("imgs");
+            var container2 = document.getElementById("container2");
+            divImgs.style.color = "red";
+
+            button.addEventListener("mouseout", function () {
+                divImgs.style.color = "aqua"; // Revert to the default color or remove this line if you want it to stay aqua
+            });
+        });
+        barette = document.getElementById('barette');
+        var screenWidth = window.innerWidth;
+        var x = -180;
+        var s = 0;
+        var d = 0;
+        var logo = document.getElementById('logo');
+    window.addEventListener('load', function () {
+        function loopx() {
+            x++;
+            logo.style.marginLeft = x + "px";
+            if (x < 40) {
+                setTimeout(loopx, 5);
+            }
+        }
+        loopx();
+    });
+
+    </script>
+    <style>
+        body{
+            background-color: rgb(45, 43, 43);
+        }
+        .OIP{
+            border-radius: 120px;
+            width: 60%;
+            height: 40px;
+            object-fit:s none;
+        
+        }
+        .OIP1{
+            border-radius: 120px;
+            width: 50px;
+            height: 50px;
+            object-fit:s none;
+        
+        }
+
+        body{
+            padding-top: 80px;
+        }
+        .main_container3{
+            padding-top: 10px;
+            border: solid;
+            border-radius: 20px;
+            position: absolute;
+            margin-top: 10px;
+            padding-top: 4px;
+            margin-bottom: 20px;
+            right: 20%;
+            width: 200px;
+            background-color:white;
+            border: none;
+        }
+        .container4{
+            padding-top: 10px;
+            margin-left: 20px;
+            text-align: left;
+            vertical-align: center;
+        }
+        .messages{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            align-items: center;
+            vertical-align: center;
+        }
+        .lmousta9bil{
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .container2{
+            height: 600px;
+            background-color: rgb(45, 43, 43);
+        }
+        .ljame3{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-bottom: 10px;
+        }
+        body {
+            height: min-content;
+        }
+
+        .main_container20 {
+            display: grid;
+            grid-template-columns: 100px 4fr;
+        }
+
+        .all {
+            display: grid;
+            grid-template-columns: 0px 1fr 0px;
+        }
+
+        .cantacts {
+            border-radius: 20px;
+
+        }
+
+        .main_container,
+        .main_container3 {
+            display: grid;
+            text-align: center;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .form_container {
+            text-align: center;
+            width: 100%;
+            border-radius: 20px;
+            background-color:rgb(242, 236, 41);
+        }
+
+        .username {
+            text-align: center;
+            width: 100px;
+            border-radius: 20px;
+            background-color:rgb(242, 236, 41);
+            margin-left: 50px;
+        }
+
+        .button {
+            border: none;
+            background-color:rgb(242, 236, 41);
+            height: 30%;
+            width: 100%;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            margin: 0;
+            padding-left:10px ;
+            margin-right: 10px;
+            color: black;
+        }
+
+        .button:hover {
+            background-color:rgb(0, 0, 0);
+            color: white;
+        }
+
+        .button:hover+#imgs {
+            background-color:black;
+        }
+
+        .container1,
+        .container2 {
+            border-radius: 20px;
+            overflow: auto;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 0;
+            margin-top: 6px;
+        }
+
+        .container1 {
+            width: 100%;
+            /* Set the desired width */
+            height: 100%;
+            /* Set the desired height */
+            overflow: auto;
+            background-color:rgb(242, 236, 41);
+        }
+        #input{
+            height: 40px;
+            width: 70%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        #envoyer{
+            height: 44px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+        .head{
+            background-color: antiquewhite;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin-top: 10px;
+        }
+        .main-container1{
+            display: grid;
+            background-color: rgb(45, 43, 43);
+            grid-template-columns: 130px 1fr 180px;
+            column-gap: 10px;
+            width: 100%;
+        }
+        .logo{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 120px;
+            text-align: center;
+            align-items: center;
+        }
+        .notifications{
+            display: grid;
+            column-gap: 10px;
+            grid-template-columns: 50px 50px 50px;
+            margin-right: 50px;
+            align-items: center;
+        }
+        i{
+            font-size: 30px;
+        }
+        .R{
+            width: 100%;
+        }
+        
+    </style>
+</body>
+
+</html>

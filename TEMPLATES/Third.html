@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'Third.css' %}">
+    <link rel="stylesheet" href="{% static 'bar.css' %}">
+    <link rel="stylesheet" href="{% static 'bar2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="main-container1">
+            <div class="logo">
+                <div class="bar" id="bar" style="color: black;">
+                    <i class="fa-sharp fa-solid fa-bars"> </i>
+                </div>
+                <img class="R" src="{% static 'images/R.png' %}" alt="">
+            </div>
+            <div class="second-part" id="second-part">
+                <div class="select select1">
+                    <select name="" id="select" aria-placeholder="genre">
+                        <option value="">Genre</option>
+                        <option value="">hotel</option>
+                    </select>
+                </div>
+                <div class="input input1">
+                    <input id="input" type="text" placeholder="Entrer une ville">
+                </div>
+                <div class="button">
+                    <button id="button">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="notifications">
+                <div class="favorie">
+                    <img class="favories" src="{% static 'images/favorie.png' %}" alt="">
+                </div>
+                <div class="undo-notification">
+                    <img id="notification" src="{% static 'images/notification.png' %}" alt="">
+                    <div class="number">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="love" id="image">
+                    <img class="OIP" src="{{ image.Image.url }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="strange">
+            <div class="form" id="form" style="background-color:blue;">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+            <div class="second-part0" id="second-part0">
+                <div class="select">
+                    <select name="" id="select0" aria-placeholder="genre">
+                        <option value="">Genre</option>
+                        <option value="">hotel</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <input id="input0" type="text" placeholder="Entrer une ville">
+                </div>
+                <div class="button">
+                    <button id="button0">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="body" style="display:flex; justify-content:center;">
+
+            <div class="ventre" id="ventre" style="padding: 0 20px 100% 20px; ">
+                <div class="imaged">
+                    <img id="u" src="{{ image_bangalo_recherch.ImageBangalo.url }}" alt="">
+                    <h1>{{image_bangalo_recherch.ville}}</h1><br>
+                    <div class="place">Nombre de place restante : {{ image_bangalo_recherch.PlaceRestante }}</div>
+                    <button class="bt" id="second" name="decouvrir" type="submit">Reserver</button>
+                </div>
+        </div>
+            
+        </div>
+
+        <script>
+            image = document.getElementById('image');
+            button = document.getElementById("button");
+            input = document.getElementById("input");
+            select = document.getElementById("select");
+            second_part = document.getElementById("second-part");
+            form = document.getElementById('form');
+            image.addEventListener('click', function () {
+                if (form.style.display == "none") {
+                    form.style.display = "block";
+                }
+                else {
+                    form.style.display = "none";
+                }
+
+            })
+            input.addEventListener("focus", function () {
+                second_part.style.marginBottom = "4px";
+                second_part.style.marginRight = "8px";
+                input.style.borderWidth = "4px";
+                select.style.borderWidth = "4px";
+                button.style.borderWidth = "4px";
+                select.style.height = "44px";
+                input.style.height = "44px";
+                button.style.height = "44px";
+
+            })
+            input.addEventListener("blur", function () {
+                second_part.style.marginLeft = "0px";
+                second_part.style.marginBottom = "0px";
+                button.style.borderWidth = "0px";
+                input.style.marginBottom = "8px"
+                input.style.borderWidth = "0px";
+                select.style.borderWidth = "0px";
+                select.style.height = "40px";
+                input.style.height = "40px";
+                button.style.height = "40px";
+            })
+            ventre = document.getElementById('ventre');
+            barette = document.getElementById('barette');
+            bar2 = document.getElementById("bar2");
+            var screenWidth = window.innerWidth;
+            var x = -0.25 * screenWidth;
+            var s = 0;
+            bar.addEventListener('click', function () {
+                function loopx() {
+                    barette.style.display = "block";
+                    barette.style.marginLeft = x + "px";
+                    if (x < -3) {
+                        setTimeout(loopx, 10);
+                        x = x + 6;
+                    }
+
+                }
+                loopx();
+            });
+            ventre.addEventListener('click', function () {
+                function loopx() {
+                    screenWidth = window.innerWidth;
+
+                    barette.style.marginLeft = x + "px";
+                    if (screenWidth > 750) {
+                        if (x > -0.35 * screenWidth) {
+                            setTimeout(loopx, 10);
+                            x = x - 6;
+                        }
+                    }
+                    else {
+                        if (x > -250) {
+                            setTimeout(loopx, 10);
+                            x = x - 6;
+                        }
+                    }
+                }
+                loopx();
+            });
+        </script>
+        <style>
+            .imaged {
+                background-color: rgb(236, 236, 236);
+            }
+    
+            .bt {
+                padding: 8px 30px 8px 30px;
+                border-radius: 4px;
+                border-style: none;
+                border: solid;
+                margin-bottom: 10px;
+                border-color: rgb(0, 0, 0);
+                background-color: rgb(0, 0, 0);
+                color: white;
+            }
+    
+            .bt:hover {
+                background-color: white;
+                color: rgb(0, 0, 0);
+            }
+            #u {
+                object-fit: cover;
+                width: 100%;
+                height: 70%;
+            }
+        </style>
+
+</body>
+
+</html>

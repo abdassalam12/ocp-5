@@ -1,0 +1,741 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'secondary.css' %}">
+    <link rel="stylesheet" href="{% static 'Third.css' %}">
+
+    <link rel="stylesheet" href="{% static 'bar2.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>barette
+    <form action="." method="post">
+        {% csrf_token %}
+    <div class="main-container" style="background-color:rgb(19, 18, 18);">
+        
+        <div class="main-container1" style="background-color:blanchedalmond;">
+           
+            <div class="logo">
+                
+                <div class="bar" id="bar">
+                    <i class="fa-sharp fa-solid fa-bars"> </i>
+                </div>
+                <img class="R" src="{% static 'images/R.png' %}" alt="">
+            </div>
+            
+            <div class="second-part" id="second-part">
+                <div class="select select1">
+                    <select name="" id="select" aria-placeholder="genre">
+                        <option value="">Genre</option>
+                        <option value="">hotel</option>
+                    </select>
+                </div>
+                
+                <div class="input input1">
+                    
+                        <input name="input" id="input" type="text" placeholder="Entrer une ville">
+                    
+                </div>
+                <div class="button">
+                    <button type="submit"  id="button" style="color: white;"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            
+            </div>
+            <div class="notifications">
+                <div class="favorie">
+                    <img class="favories" src="{% static 'images/favorie.png' %}" alt="">
+                </div>
+                <div class="undo-notification">
+                    <img id="notification" src="{% static 'images/notification.png' %}" alt="">
+                    <div class="number">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="love" id="image">
+                    <img class="OIP" src="{{ image.Image.url }}" alt="">
+                </div>
+            </div>
+        
+        </div>
+    </form>
+        <div class="strange">
+            <div class="form" id="form">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+            <div class="second-part0" id="second-part0">
+                <div class="select">
+                    <select name="" id="select0" aria-placeholder="genre">
+                        <option value="">Genre</option>
+                        <option value="">hotel</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <input id="input0" type="text" placeholder="Entrer une ville">
+                </div>
+                <div class="button">
+                    <button id="button0" style="color: white;">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+   
+        <div class="body" id="body">
+            <div class="barette" id="barette" style="margin-right: 50%;">
+                <button class="bare" id="dar">Trouver des collegue</button>
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <button class="bare" id="dar"  name="Home" type="submit" value="Go Home">Go Home</button>
+                        <button class="bare" id="dar" type="submit" name="Message">Message</button>
+                    </form>
+                <button class="bare" id="dar">Mes projets</button>
+                <button class="bare" id="dar">Trouver des agents</button>
+                <button class="bare" id="dar">Message</button>
+
+            </div>
+            <div class="ventredeventre" id="ventredeventre">
+            <div  class="ventre" id="ventre" style="padding: 0 20px 100% 20px; ">
+
+                <div class="imaged">
+
+
+                    <img id="u"
+                        src="{% static 'images/shopping-leisure-discounts-concept-excited-handsome-smiling-man-scream-from-happiness-as-carry-bags-from-shop-with-special-offers-react-amazed-wonderful-prices-yellow-background.jpg' %}"
+                        alt="" />
+                    <h1>Offre Reduction</h1><br>
+                    <div class="bt" id="first" >Decouvrir</div>
+                </div>
+                <div class="imaged">
+                    <img id="u" src="{% static 'images/campi.jpeg' %}" alt="">
+                    <h1>Camp</h1><br>
+                    <div class="bt" id="second" >Decouvrir</div>
+                </div>
+                <div class="imaged">
+                    <img id="u" src="{% static 'images/medcin.png' %}" alt="">
+                    <h1>Medical</h1><br>
+                    <button class="bt" >Decouvrir</button>
+
+                </div>
+            </div>
+        </div>
+            <div class="ventre1" id="ventre1" style="display: none;">
+
+                <div class="step2">
+                    <div class="div">
+                    </div>
+                    <div class="imgs-container">
+                        <img id="long-img" src="{% static 'images/long-image.jpg' %}" alt="">
+                    </div>
+                    <div></div>
+                </div>
+
+                <div class="last-container">
+                    {%for images in images_offres%}
+                    <div class="op"><img src="{{ images.ImageDoffre.url }}" class="imgz" alt=""><button
+                            class="box-button">Apparel</button>
+                        <div class="reduction">-{{ images.reduction }}%</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="ventre" id="ventre2" style="padding: 0 20px 100% 20px; display:none;">
+                {%for images in image_bangalo%}
+                    <div class="imaged">
+                        <img id="u" src="{{ images.ImageBangalo.url }}" alt="">
+                        <h1>{{images.ville}}</h1><br>
+                        <div class="place">Nombre de place restante : {{ images.PlaceRestante }}</div>
+                        <button class="bt" id="second" name="decouvrir" type="submit">Reserver</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <iframe src="www.amazon.com/" width="largeur" height="hauteur"></iframe>
+            
+            
+            
+        </div>
+    </div>
+
+    <script>
+        button = document.getElementById("button");
+        input = document.getElementById("input");
+        select = document.getElementById("select");
+        second_part = document.getElementById("second-part");
+        button0 = document.getElementById("button0");
+        input0 = document.getElementById("input0");
+        select0 = document.getElementById("select0");
+        second_part0 = document.getElementById("second-part0");
+        ventre = document.getElementById('ventre');
+        v2 = document.getElementById('ventredeventre')
+        bar = document.getElementById('bar');
+        image = document.getElementById('image');
+        form = document.getElementById('form');
+        first = document.getElementById('first');
+        second = document.getElementById('second');
+        ventre1 = document.getElementById('ventre1');
+        ventre2 = document.getElementById('ventre2');
+        body = document.getElementById('body');
+        button = document.getElementById("button");
+        ventre = document.getElementById('ventre');
+        first.addEventListener('click',function(){
+            ventre.style.display = "none";
+            ventre1.style.display = "block";
+        })
+        second.addEventListener('click',function(){
+            ventre.style.display = "none";
+            ventre2.style.display = "grid";
+        })
+        image.addEventListener('click', function () {
+            if (form.style.display == "none") {
+                form.style.display = "block";
+            }
+            else {
+                form.style.display = "none";
+            }
+
+        })
+        input.addEventListener("focus", function () {
+            second_part.style.marginBottom = "4px";
+            second_part.style.marginRight = "8px";
+            input.style.borderWidth = "4px";
+            select.style.borderWidth = "4px";
+            button.style.borderWidth = "4px";
+            select.style.height = "44px";
+            input.style.height = "44px";
+            button.style.height = "44px";
+
+        })
+        input.addEventListener("blur", function () {
+            second_part.style.marginLeft = "0px";
+            second_part.style.marginBottom = "0px";
+            button.style.borderWidth = "0px";
+            input.style.marginBottom = "8px"
+            input.style.borderWidth = "0px";
+            select.style.borderWidth = "0px";
+            select.style.height = "40px";
+            input.style.height = "40px";
+            button.style.height = "40px";
+        })
+        input0.addEventListener("focus", function () {
+            second_part0.style.marginBottom = "4px";
+            second_part0.style.marginRight = "0px";
+            input0.style.borderWidth = "4px";
+            select0.style.borderWidth = "4px";
+            button0.style.borderWidth = "4px";
+            select0.style.height = "44px";
+            input0.style.height = "44px";
+            button0.style.height = "44px";
+
+        })
+        input0.addEventListener("blur", function () {
+            second_part0.style.marginLeft = "0px";
+            second_part0.style.marginBottom = "0px";
+            button0.style.borderWidth = "0px";
+            input0.style.marginBottom = "8px"
+            input0.style.borderWidth = "0px";
+            select0.style.borderWidth = "0px";
+            select0.style.height = "40px";
+            input0.style.height = "40px";
+            button0.style.height = "40px";
+        })
+        barette = document.getElementById('barette');
+        var screenWidth = window.innerWidth;
+        var x = -180;
+        var s = 0;
+        var d = 0;
+        bar.addEventListener('click', function () {
+            d = 1;
+            function loopx() {
+                barette.style.display = "block";
+                barette.style.marginLeft = x + "px";
+                if (x < -3) {
+                    setTimeout(loopx, 10);
+                    x = x + 6;
+                }
+
+            }
+            loopx();
+        });
+        ventre.addEventListener('click', function () {
+        if(d==0){
+        }
+        else{
+            function loopx() {
+                screenWidth = window.innerWidth;
+
+                barette.style.marginLeft = x + "px";
+                if (screenWidth > 750) {
+                    if (x > -0.35 * screenWidth) {
+                        setTimeout(loopx, 10);
+                        x = x - 6;
+                    }
+                }
+                else {
+                    if (x > -250) {
+                        setTimeout(loopx, 10);
+                        x = x - 6;
+                    }
+                }
+            }
+            loopx();
+        }
+        });
+        ventre1.addEventListener('click', function () {
+            if(d==0){
+                    d = 1;
+                    console.log(d);
+            }
+            else{
+                function loopx() {
+                    screenWidth = window.innerWidth;
+    
+                    barette.style.marginLeft = x + "px";
+                    if (screenWidth > 750) {
+                        if (x > -0.35 * screenWidth) {
+                            setTimeout(loopx, 10);
+                            x = x - 6;
+                        }
+                    }
+                    else {
+                        if (x > -250) {
+                            setTimeout(loopx, 10);
+                            x = x - 6;
+                        }
+                    }
+                }
+                loopx();
+            }
+            });
+
+        
+    </script>
+    <style>
+        .place{
+            margin-top: -15px;
+            margin-bottom: 5px;
+        }
+        #dar{
+            width: 112%;
+            font-size: 25px;
+            text-align: center;
+            align-items: center;
+            padding: 10px;
+        }
+        .form {
+            position: absolute;
+            right: 0;
+            z-index: 100;
+            height: 500px;
+            background-color: rgb(84, 81, 81);
+            display: none;
+        }
+
+        .bare {
+            background-color: white;
+        }
+
+        .imaged {
+            background-color: rgb(236, 236, 236);
+        }
+
+        .bt {
+            padding: 8px 30px 8px 30px;
+            border-radius: 4px;
+            border-style: none;
+            border: solid;
+            margin-bottom: 10px;
+            border-color: rgb(0, 0, 0);
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .bt:hover {
+            background-color: white;
+            color: rgb(0, 0, 0);
+        }
+
+        .undo-notification:hover {
+            background-color: rgb(158, 149, 149);
+        }
+
+        .favorie:hover {
+            background-color: rgb(158, 149, 149);
+        }
+
+        .bar:hover {
+            background-color: rgb(158, 149, 149);
+        }
+
+        body {
+            margin: 0 0 0 0;
+        }
+
+        .main-container1 {
+            display: grid;
+            background-color: rgb(45, 43, 43);
+            grid-template-columns: 130px 1fr 180px;
+            column-gap: 10px;
+            width: 100%;
+        }
+
+        .logo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 120px;
+            text-align: center;
+            align-items: center;
+        }
+
+        .notifications {
+            display: grid;
+            column-gap: 10px;
+            grid-template-columns: 50px 50px 50px;
+            margin-right: 50px;
+            align-items: center;
+        }
+
+        i {
+            font-size: 30px;
+        }
+
+        .R {
+            width: 100%;
+        }
+
+        .OIP {
+            border-radius: 120px;
+            width: 80%;
+            height: 40px;
+            object-fit: s none;
+
+        }
+
+        #notification {
+            width: 50%;
+        }
+
+        .favories {
+            width: 50%;
+        }
+
+        .undo-notification {
+            position: relative;
+            text-align: center;
+            border-radius: 200px;
+            height: 40px;
+            align-items: center;
+            padding-top: 9px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .number {
+            font-size: 20px;
+            position: absolute;
+            top: 0px;
+            right: 5px;
+            border-radius: 70px;
+            background-color: red;
+            color: azure;
+            padding: 0 7px 0 7px;
+        }
+
+        .second-part {
+            display: flex;
+            align-items: center;
+        }
+
+        .select,
+        .button,
+        .input {
+            height: 40px;
+        }
+
+        #select,
+        #button {
+            height: 100%;
+            border-style: solid;
+            border-color: black;
+        }
+
+        .input {
+            flex: 1;
+        }
+
+        #input {
+            border-style: solid;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border-color: black;
+            box-sizing: border-box;
+            border-right: none;
+            border-left: none;
+        }
+
+        #button {
+            background-color: black;
+            border-color: black;
+            border-left: none;
+            width: 50px;
+            height: 100%;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        #select {
+            border-right: none;
+            background-color: rgb(215, 211, 211);
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        i {
+            font-size: 18px;
+        }
+
+        .second-part0 {
+            display: none;
+        }
+
+        .strange {
+            height: 40px;
+        }
+
+        #select0,
+        #button0 {
+            height: 100%;
+            border-style: solid;
+            border-color: black;
+        }
+
+        #input0 {
+            border-style: solid;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border-color: black;
+            box-sizing: border-box;
+            border-right: none;
+            border-left: none;
+        }
+
+        #button0 {
+            background-color: black;
+            border-color: black;
+            border-left: none;
+            width: 50px;
+            height: 100%;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        #select0 {
+            border-right: none;
+            background-color: rgb(215, 211, 211);
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        @media(max-width:1200px) {
+            .strange {
+                height: 40px;
+            }
+
+            .main-container1 {
+                display: grid;
+                background-color: blanchedalmond;
+                grid-template-columns: 150px 1fr 180px;
+                column-gap: 10px;
+                width: 100%;
+            }
+
+            .input1 {
+                color: blanchedalmond;
+                display: none;
+            }
+
+            .select1 {
+                display: none;
+            }
+
+            .second-part0 {
+                display: flex;
+                align-items: center;
+            }
+
+            .main-container {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            #button {
+                background-color: blanchedalmond;
+                border-color: blanchedalmond;
+                color: blanchedalmond;
+            }
+
+        }
+
+        .undo-notification {
+            position: relative;
+            text-align: center;
+            border-radius: 200px;
+            height: 40px;
+            align-items: center;
+            padding-top: 9px;
+        }
+
+        .undo-notification:hover {
+            background-color: rgb(158, 149, 149);
+            text-align: center;
+            border-radius: 200px;
+            height: 40px;
+            align-items: center;
+            padding-top: 9px;
+        }
+
+        .favorie {
+            text-align: center;
+            border-radius: 200px;
+            height: 40px;
+            padding-top: 10px;
+            padding-bottom: -9px;
+        }
+
+        .favorie:hover {
+            background-color: rgb(158, 149, 149);
+        }
+
+        .favories {
+            margin-top: 2px;
+        }
+
+        .bar {
+            width: 30px;
+            height: 30px;
+            font-size: 25px;
+            text-align: center;
+            align-items: center;
+            border-radius: 80px;
+            padding: 10px;
+        }
+
+        .bar:hover {
+            background-color: rgb(158, 149, 149);
+        }
+
+        .love {
+            position: relative;
+        }
+
+        .barette {
+            width: 30%;
+            position: absolute;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .bare {
+            padding: 20px 20px 20px 20px;
+            border: solid;
+            border-color: rgb(198, 143, 15);
+            background-color: blanchedalmond;
+            border-top: none;
+            width: 100%;
+        }
+
+        .bare:hover {
+            background-color: blanchedalmond;
+        }
+
+        .bad {
+            border-top: solid;
+            border-color: rgb(198, 143, 15);
+            border-color: rgb(178, 176, 176);
+        }
+
+        .barette {
+            margin-left: -35%;
+            z-index: 300;
+        }
+
+        @media(min-width:1200px) {
+            .ventre {
+                padding-bottom: 500px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 20px;
+                text-align: center;
+            }
+        }
+
+        .imaged {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: blanchedalmond;
+        }
+
+        .bare:hover {
+            background-color: rgb(178, 176, 176);
+        }
+
+        #u {
+            object-fit: cover;
+            width: 100%;
+            height: 70%;
+        }
+
+        .decouvrir {
+            position: absolute;
+        }
+
+        h1 {
+            margin: 0 0 0 0;
+        }
+
+        .bt {
+            border-radius: 20px;
+        }
+
+        @media (max-width:1200px) {
+            .ventre {
+                text-align: center;
+                vertical-align: center;
+            }
+
+            .imaged {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 16px;
+            }
+
+            #u {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    </style>
+</body>
+
+</html>
